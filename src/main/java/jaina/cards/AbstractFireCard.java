@@ -1,8 +1,18 @@
 package jaina.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import jaina.actions.ApplySorchedAction;
 import jaina.modCore.IHelper;
 import jaina.modCore.JainaEnums;
+import jaina.powers.FrozenPower;
+import jaina.powers.SorchedPower;
 
 import java.util.List;
 
@@ -29,5 +39,25 @@ public abstract class AbstractFireCard extends AbstractJainaCard {
     @Override
     public List<String> getCardDescriptors() {
         return getCardDescriptors(SPELL_TYPE);
+    }
+
+    public void dealFireDamage(AbstractPlayer p, AbstractMonster mo) {
+        dealDamage(mo, AbstractGameAction.AttackEffect.FIRE);
+        addToBot(new ApplySorchedAction(p, mo, magicNumber));
+    }
+
+    public void calculateFireDamage(AbstractMonster mo) {
+        int originalBaseDamage = this.baseDamage;
+
+        if (mo.hasPower(SorchedPower.POWER_ID)) {
+            this.baseDamage += mo.getPower(SorchedPower.POWER_ID).amount;
+        }
+
+        super.calculateCardDamage(mo);
+
+        this.baseDamage = originalBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+
+        this.initializeDescription();
     }
 }

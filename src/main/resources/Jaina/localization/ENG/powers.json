@@ -77,6 +77,12 @@
       "Your next #b%d #yArcane cards are played twice this turn."
     ]
   },
+  "jaina:SorchedPower": {
+    "NAME": "Sorched",
+    "DESCRIPTIONS": [
+      "#bFire spells deal #b%d extra damage. At the end of this turn, lose #b%d #ySorch."
+    ]
+  },
   "jaina:SpellForcePower": {
     "NAME": "Spell Force",
     "DESCRIPTIONS": [

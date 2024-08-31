@@ -51,6 +51,14 @@
   },
   {
     "NAMES": [
+      "Sorched",
+      "sorched"
+    ],
+    "PROPER_NAME": "Sorched",
+    "DESCRIPTION": "#ySorched creatures will lose HP at the start of their turn. Sorced is reduced in halve rounded down."
+  },
+  {
+    "NAMES": [
       "Purge",
       "purge"
     ],

@@ -144,7 +144,7 @@
   },
   "jaina:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! jaina:Sorched."
   },
   "jaina:Fireblast": {
     "NAME": "Fireblast",
